@@ -1,7 +1,5 @@
 """This module contains the Store class."""
 
-import products
-
 
 class Store:
     """Represent a store that manages a collection of products."""
