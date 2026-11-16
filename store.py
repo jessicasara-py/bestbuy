@@ -1,4 +1,3 @@
-
 """This module contains the Store class."""
 
 import products
@@ -38,7 +37,8 @@ class Store:
 
         return active_products
 
-    def order(self, shopping_list):
+    @staticmethod
+    def order(shopping_list):
         """Process an order and return its total price."""
         total_price = 0
 
@@ -46,33 +46,3 @@ class Store:
             total_price += product.buy(quantity)
 
         return float(total_price)
-
-
-def main():
-    """Run a simple demonstration of the Store class."""
-    product_list = [
-        products.Product("MacBook Air M2", price=1450, quantity=100),
-        products.Product(
-            "Bose QuietComfort Earbuds",
-            price=250,
-            quantity=500
-        ),
-        products.Product("Google Pixel 7", price=500, quantity=250)
-    ]
-
-    best_buy = Store(product_list)
-
-    active_products = best_buy.get_all_products()
-
-    print(best_buy.get_total_quantity())
-
-    print(
-        best_buy.order([
-            (active_products[0], 1),
-            (active_products[1], 2)
-        ])
-    )
-
-
-if __name__ == "__main__":
-    main()
